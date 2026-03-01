@@ -1,0 +1,502 @@
+body {
+  background-color: #111;
+  color: #fff;
+  font-family: "Montserrat", "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  font-variation-settings: "wdth" 100;
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  max-width: 1200px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+.embers {
+  position: relative;
+  width: 100%;
+}
+
+.embers .ember {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 200, 50, 0.8),
+    rgba(255, 150, 20, 0.4),
+    transparent
+  );
+  filter: blur(0.5px);
+  animation: float linear infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(calc(-1 * var(--container-height)))
+      translateX(var(--drift)) scale(0.3);
+    opacity: 0;
+  }
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+}
+
+header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 240px);
+  min-height: 300px;
+  padding: 20px;
+
+  &.privacy {
+    max-width: 800px;
+    height: auto;
+    min-height: auto;
+    padding: 50px 0;
+    margin: 0 auto;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .logo {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #11111133;
+    border-radius: 12px;
+    font-size: 26px;
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+      sans-serif;
+
+    .mascot {
+      width: 40px;
+      color: #fff;
+    }
+  }
+
+  h1 {
+    font-weight: 600;
+    font-size: 64px;
+    text-align: center;
+    background: linear-gradient(to right, #fff 10%, #e08333);
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 6s ease-in-out infinite;
+    will-change: background-position;
+  }
+
+  .add-btn {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 9999px;
+    background: #58c28c;
+    background: linear-gradient(to right, #f09343, #e08333);
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+
+    .free {
+      font-weight: 400;
+    }
+
+    &:hover {
+      background: linear-gradient(to right, #f8ab5b, #e89b4b);
+    }
+  }
+}
+
+.testimonials {
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  line-height: 20px;
+
+  .carousel {
+    display: flex;
+  }
+
+  .post {
+    min-width: 300px;
+    margin: 10px;
+    padding: 15px;
+    border: solid 2px #222;
+    border-radius: 10px;
+    background-color: #111;
+  }
+
+  .post-header {
+    display: flex;
+    align-items: center;
+  }
+
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .name {
+    font-weight: bold;
+  }
+
+  .handle {
+    color: #888;
+  }
+
+  .post-text {
+    margin: 10px 0;
+  }
+
+  .post-footer {
+    display: flex;
+    justify-content: space-between;
+    color: #777;
+
+    span {
+      display: flex;
+      gap: 3px;
+    }
+
+    svg {
+      width: 18px;
+    }
+  }
+}
+
+.features-title {
+  font-size: 36px;
+  font-weight: 300;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.features {
+  display: flex;
+  gap: 60px;
+  flex-direction: column;
+}
+
+.feature {
+  display: flex;
+  gap: 40px;
+  max-width: 65%;
+
+  .text {
+    font-size: 15px;
+    text-align: left;
+
+    h2 {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-weight: 500;
+      font-size: 22px;
+
+      .num {
+        flex-shrink: 0;
+        background: #fff;
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+        color: #000;
+      }
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 16px;
+
+      b {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.feature .demo {
+  width: 300px;
+  height: 300px;
+  padding: 10px;
+  flex-shrink: 0;
+  background: #0d0d0d;
+  border: solid 2px #1a1a1a;
+  box-shadow: 0px 0px 100px rgba(40, 154, 255, 0.5);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.feature.left {
+  flex-direction: row;
+  margin-left: 0;
+  margin-right: auto;
+
+  .demo {
+    transform: rotate(-2deg);
+  }
+}
+
+.feature.right {
+  flex-direction: row-reverse;
+  margin-left: auto;
+  margin-right: 0;
+
+  .demo {
+    transform: rotate(2deg);
+  }
+}
+
+footer {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 20px;
+}
+
+footer a {
+  margin-top: 30px;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.privacy-content {
+  max-width: 800px;
+  padding: 0;
+  margin: 0 auto;
+
+  h1 {
+    margin-top: 0;
+    font-weight: 500;
+  }
+
+  h2 {
+    font-weight: 500;
+  }
+
+  p,
+  li {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  li {
+    padding: 4px 0;
+  }
+
+  a {
+    color: #22aaff;
+    text-decoration: none;
+  }
+}
+
+.support-options {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+.support-box {
+  flex: 1;
+  max-width: 300px;
+  padding: 30px;
+  border: solid 2px #222;
+  border-radius: 14px;
+  text-align: center;
+
+  h2 {
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #aaa;
+    margin-bottom: 20px;
+  }
+
+  a {
+    color: #22aaff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.langs-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  margin: 120px 0 30px 0;
+
+  .langs-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 300;
+  }
+
+  .flags-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    width: 42vw;
+    padding: 20px;
+    overflow: hidden;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .flag-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+  }
+
+  .flag-icon:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 1100px) {
+  .features {
+    align-items: center;
+
+    .feature {
+      max-width: 800px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  header {
+    .logo {
+      left: 30px;
+    }
+
+    h1 {
+      margin-top: 100px;
+      font-size: 46px;
+    }
+  }
+
+  .features-title {
+    padding: 50px 30px 40px 30px;
+  }
+
+  .features {
+    align-items: center;
+
+    .feature {
+      max-width: none;
+      flex-direction: column-reverse;
+      align-items: center;
+      margin: 0;
+    }
+
+    .text {
+      text-align: center;
+      padding: 0 30px;
+
+      h2 {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+      }
+    }
+  }
+
+  .privacy-content {
+    padding: 0 30px;
+  }
+
+  .langs-footer {
+    .flags-container {
+      width: 80vw;
+      gap: 15px;
+      padding: 15px;
+    }
+  }
+
+  .support-options {
+    flex-direction: column;
+    align-items: center;
+  }
+}
